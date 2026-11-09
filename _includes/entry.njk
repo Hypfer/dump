@@ -1,0 +1,17 @@
+<article class="entry{% if e.bareLink %} bare{% endif %}{% if e.compact %} compact{% endif %}" id="{{ e.anchor }}">
+  <div class="body">
+    {% if e.title %}
+      <h3>{% if e.link %}<a href="{{ e.link }}" target="_blank" rel="noopener">{{ e.title }}</a>{% else %}{{ e.title }}{% endif %}</h3>
+    {% elif e.bareLink %}
+      <h3><a href="{{ e.link }}" target="_blank" rel="noopener">{{ e.domain }}</a></h3>
+    {% endif %}
+    {{ e.bodyHtml | safe }}
+    {% if e.bodyFirst %}
+      <p class="src"><a href="{{ e.link }}" target="_blank" rel="noopener">{{ e.link }}</a></p>
+    {% endif %}
+    {% if e.via %}
+      <p class="via">{% if e.viaLink %}Via <a href="{{ e.viaLink }}" target="_blank" rel="noopener">{{ e.via }}</a>{% else %}Thanks, {{ e.via }}!{% endif %}</p>
+    {% endif %}
+  </div>
+  <a class="pl" href="{{ e.permalink | url }}" title="permalink">[l]</a>
+</article>

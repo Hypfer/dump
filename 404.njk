@@ -1,0 +1,15 @@
+---
+permalink: "/404.html"
+---
+{% extends "base.njk" %}
+{% block title %}404 - {{ blog.site.title }}{% endblock %}
+{% block content %}
+
+<h2 class="day-h">404</h2>
+<p>Nothing here.</p>
+
+<nav class="daynav">
+  <a class="mid" href="{{ '/' | url }}">today</a>
+</nav>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+---
+permalink: "/"
+---
+{% extends "base.njk" %}
+{% block content %}
+{% for day in blog.days.slice(0, 14) %}
+{% include "dayblock.njk" %}
+{% endfor %}
+<nav class="daynav">
+  <a class="mid" href="{{ '/a/' | url }}">archive</a>
+  {% if blog.days.length > 14 %}<a class="next" href="{{ blog.days[14].url | url }}">older →</a>{% endif %}
+</nav>
+{% endblock %}

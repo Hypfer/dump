@@ -1,0 +1,18 @@
+---
+pagination:
+  data: blog.months
+  size: 1
+  alias: month
+permalink: "/a/{{ month.key }}/"
+---
+{% extends "base.njk" %}
+{% block title %}{{ month.label }} - {{ blog.site.title }}{% endblock %}
+{% block og_title %}{{ month.label }}{% endblock %}
+{% block content %}
+{% for day in month.days %}
+{% include "dayblock.njk" %}
+{% endfor %}
+<nav class="daynav">
+  <a class="mid" href="{{ '/a/' | url }}">archive</a>
+</nav>
+{% endblock %}

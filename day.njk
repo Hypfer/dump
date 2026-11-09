@@ -1,0 +1,18 @@
+---
+pagination:
+  data: blog.days
+  size: 1
+  alias: day
+permalink: "/a/{{ day.key }}/"
+---
+{% extends "base.njk" %}
+{% block title %}{{ day.dateLabel }} - {{ blog.site.title }}{% endblock %}
+{% block og_title %}{{ day.dateLabel }}{% endblock %}
+{% block content %}
+{% include "dayblock.njk" %}
+<nav class="daynav">
+  {% if day.newer %}<a href="{{ day.newer.url | url }}">← {{ day.newer.dateLabel }}</a>{% endif %}
+  <a class="mid" href="{{ '/' | url }}">today</a>
+  {% if day.older %}<a class="next" href="{{ day.older.url | url }}">{{ day.older.dateLabel }} →</a>{% endif %}
+</nav>
+{% endblock %}

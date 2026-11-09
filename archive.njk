@@ -1,0 +1,19 @@
+---
+permalink: "/a/"
+---
+{% extends "base.njk" %}
+{% block title %}archive - {{ blog.site.title }}{% endblock %}
+{% block og_title %}archive{% endblock %}
+{% block content %}
+{% for y in blog.years %}
+<h2 class="day-h">{{ y.label }} <span class="count">{{ y.count }} entr{{ "y" if y.count == 1 else "ies" }}</span></h2>
+<ul class="monthlist">
+{% for m in y.months %}
+  <li>
+    <a href="{{ m.url | url }}">{{ m.name }}</a>
+    <span class="count">{{ m.count }} entr{{ "y" if m.count == 1 else "ies" }}</span>
+  </li>
+{% endfor %}
+</ul>
+{% endfor %}
+{% endblock %}

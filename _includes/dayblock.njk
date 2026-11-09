@@ -1,0 +1,4 @@
+<section>
+<h2 class="day-h"><time datetime="{{ day.isoDate }}">{{ day.dateLabel }}</time></h2>
+{% for e in day.entries %}{% include "entry.njk" %}{% endfor %}
+</section>

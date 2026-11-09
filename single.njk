@@ -1,0 +1,19 @@
+---
+pagination:
+  data: blog.entries
+  size: 1
+  alias: e
+permalink: "/p/{{ e.anchor }}/"
+---
+{% extends "base.njk" %}
+{% block title %}{{ e.anchor }} - {{ blog.site.title }}{% endblock %}
+{% block og_title %}{{ e.headline }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block content %}
+{% include "entry.njk" %}
+<nav class="daynav">
+  {% if e.newer %}<a href="{{ e.newer.permalink | url }}">← newer</a>{% endif %}
+  <a class="mid" href="{{ e.dayUrl | url }}">↑ {{ e.dayLabel }}</a>
+  {% if e.older %}<a class="next" href="{{ e.older.permalink | url }}">older →</a>{% endif %}
+</nav>
+{% endblock %}

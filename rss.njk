@@ -1,0 +1,22 @@
+---
+permalink: "/feed.xml"
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>{{ blog.site.title }}</title>
+<link>{{ blog.site.url }}/</link>
+<description>{{ blog.site.description }}</description>
+<atom:link href="{{ blog.site.url }}/feed.xml" rel="self" type="application/rss+xml"/>
+{% if blog.entries.length > 0 %}<lastBuildDate>{{ blog.entries[0].date | rfc822 }}</lastBuildDate>{% endif %}
+{% for e in blog.entries.slice(0, 30) %}
+<item>
+<title>{{ e.headline }}</title>
+<link>{{ blog.site.url }}{{ e.permalink }}</link>
+<guid isPermaLink="false">tag:dump.hypfer.de,{{ e.dayKey.slice(0, 4) }}:{{ e.anchor }}</guid>
+<pubDate>{{ e.date | rfc822 }}</pubDate>
+<content:encoded>{{ e.feedHtml }}</content:encoded>
+</item>
+{% endfor %}
+</channel>
+</rss>
