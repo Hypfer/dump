@@ -21,7 +21,7 @@ const site = {
   title: "Hypfer’s dumping grounds",
   brand: "Hypfer’s dumping grounds",
   tagline: "Somewhat curated internet",
-  description: "Stuff I deemed worthy of note",
+  description: "Stuff I've deemed worthy of note",
   tz: TZ,
 };
 
