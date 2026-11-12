@@ -4,7 +4,7 @@ import MarkdownIt from "markdown-it";
 
 const TZ = "Europe/Berlin";
 
-const md = new MarkdownIt({ linkify: true, typographer: true });
+const md = new MarkdownIt({ html: true, linkify: true, typographer: true });
 
 const renderLink = md.renderer.rules.link_open || ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
 md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
